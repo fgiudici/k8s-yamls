@@ -1,0 +1,10 @@
+kind: KonnectGatewayControlPlane
+apiVersion: konnect.konghq.com/v1alpha2
+metadata:
+  name: cp-konnect
+spec:
+  createControlPlaneRequest:
+    name: cp-konnect
+  konnect:
+    authRef:
+      name: api-konnect

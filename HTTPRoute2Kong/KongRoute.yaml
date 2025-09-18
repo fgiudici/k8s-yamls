@@ -1,0 +1,16 @@
+kind: KongRoute
+apiVersion: configuration.konghq.com/v1alpha1
+metadata:
+  name: route-quote-rule1
+spec:
+  name: quote-rule1
+#  protocols:
+#  - http
+#  - https
+  paths:
+  - "/quote"
+  strip_path: false
+  serviceRef:
+    type: namespacedRef
+    namespacedRef:
+      name: svc-quote-rule1

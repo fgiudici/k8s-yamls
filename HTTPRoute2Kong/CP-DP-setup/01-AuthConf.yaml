@@ -1,0 +1,8 @@
+kind: KonnectAPIAuthConfiguration
+apiVersion: konnect.konghq.com/v1alpha1
+metadata:
+  name: api-konnect
+spec:
+  type: token
+  token: "kpat_XXXX"
+  serverURL: eu.api.konghq.tech

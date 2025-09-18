@@ -1,0 +1,13 @@
+kind: KongService
+apiVersion: configuration.konghq.com/v1alpha1
+metadata:
+  name: svc-quote-rule1
+spec:
+  name: quote-rule1
+  host: quote-rule1
+  port: 80
+  controlPlaneRef:
+    type: konnectNamespacedRef
+    konnectNamespacedRef:
+      name: cp-konnect
+

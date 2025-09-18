@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quotaday2
+spec:
+  selector:
+    matchLabels:
+      app: quotaday2
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: quotaday2
+    spec:
+      containers:
+        - name: quotaday
+          image: quay.io/fgiudici/quotaday:v0.2.0
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: quotaday2
+  labels:
+    app: quotaday2
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+  selector:
+    app: quotaday2

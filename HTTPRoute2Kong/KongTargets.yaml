@@ -1,0 +1,33 @@
+# NAME                         ENDPOINTS                         AGE
+# quotaday                     10.42.0.31:80,10.42.0.32:80       22m
+# quotaday2                    10.42.0.33:80                     22m
+kind: KongTarget
+apiVersion: configuration.konghq.com/v1alpha1
+metadata:
+  name: target-quote-rule1-svc1.1
+spec:
+  upstreamRef:
+    name: upstream-quote-rule1
+  target: 10.42.0.31:80
+  weight: 1
+---
+kind: KongTarget
+apiVersion: configuration.konghq.com/v1alpha1
+metadata:
+  name: target-quote-rule1-svc1.2
+spec:
+  upstreamRef:
+    name: upstream-quote-rule1
+  target: 10.42.0.32:80
+  weight: 1
+---
+kind: KongTarget
+apiVersion: configuration.konghq.com/v1alpha1
+metadata:
+  name: target-quote-rule1-svc2.1
+spec:
+  upstreamRef:
+    name: upstream-quote-rule1
+  target: 10.42.0.33:80
+  weight: 4
+
