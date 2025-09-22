@@ -5,8 +5,7 @@ metadata:
   namespace: default
 spec:
   parentRefs:
-  - name: kong
-    namespace: kong
+  - name: kong-zonkey01
   rules:
   - matches:
     - path:
@@ -21,9 +20,9 @@ spec:
     backendRefs:
     - name: quotaday
       kind: Service
-      port: 80
+      port: 8080
       weight: 2
     - name: quotaday2
       kind: Service
-      port: 80
+      port: 8088
       weight: 4

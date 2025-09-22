@@ -1,0 +1,19 @@
+kind: KongTarget
+apiVersion: configuration.konghq.com/v1alpha1
+metadata:
+  name: target-quote-rule1-svc1.1
+spec:
+  upstreamRef:
+    name: upstream-quote-rule1
+  target: quotaday.default.svc.cluster.local:8080
+  weight: 1
+---
+kind: KongTarget
+apiVersion: configuration.konghq.com/v1alpha1
+metadata:
+  name: target-quote-rule1-svc1.2
+spec:
+  upstreamRef:
+    name: upstream-quote-rule1
+  target: quotaday2.default.svc.cluster.local:8088
+  weight: 2  

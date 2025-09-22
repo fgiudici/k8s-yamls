@@ -7,4 +7,4 @@ spec:
   controlPlaneRef:
     type: konnectNamespacedRef
     konnectNamespacedRef:
-      name: cp-konnect
+      name: cp-zonkey

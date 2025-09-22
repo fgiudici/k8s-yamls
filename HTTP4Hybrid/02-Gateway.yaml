@@ -1,0 +1,47 @@
+kind: Gateway
+apiVersion: gateway.networking.k8s.io/v1
+metadata:
+  name: kong-zonkey01
+spec:
+  gatewayClassName: kong-zonkey
+  listeners:
+  - name: http
+    protocol: HTTP
+    port: 80
+---
+kind: GatewayClass
+apiVersion: gateway.networking.k8s.io/v1
+metadata:
+  name: kong-zonkey
+spec:
+  controllerName: konghq.com/gateway-operator
+  parametersRef:
+    group: gateway-operator.konghq.com
+    kind: GatewayConfiguration
+    name: konnect-zonkey
+    namespace: default
+---
+kind: GatewayConfiguration
+apiVersion: gateway-operator.konghq.com/v1beta1
+metadata:
+  name: konnect-zonkey
+  namespace: default
+spec:
+  extensions:
+  - name: konnect-zonkey
+    kind: KonnectExtension
+    group: konnect.konghq.com
+    namespace: default
+---
+kind: KonnectExtension
+apiVersion: konnect.konghq.com/v1alpha2
+metadata:
+ name: konnect-zonkey
+spec:
+  konnect:
+   controlPlane:
+     ref:
+       type: konnectNamespacedRef
+       konnectNamespacedRef:
+         name: cp-zonkey
+
