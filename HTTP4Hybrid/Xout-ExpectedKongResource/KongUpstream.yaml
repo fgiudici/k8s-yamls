@@ -1,10 +1,10 @@
 kind: KongUpstream
 apiVersion: configuration.konghq.com/v1alpha1
 metadata:
-  name: upstream-quote-rule1
+  name: httproute.default.httproute-quote.0.0
 spec:
-  name: quote-rule1
   controlPlaneRef:
-    type: konnectNamespacedRef
     konnectNamespacedRef:
       name: cp-zonkey
+    type: konnectNamespacedRef
+  name: httproute.default.httproute-quote.0.0

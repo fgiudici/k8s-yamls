@@ -1,13 +1,17 @@
 kind: KongService
 apiVersion: configuration.konghq.com/v1alpha1
 metadata:
-  name: svc-quote-rule1
+  name: httproute.default.httproute-quote.0.0
+  ownerReferences:
+    - apiVersion: gateway.networking.k8s.io/v1
+      blockOwnerDeletion: true
+      kind: HTTPRoute
+      name: httproute-quote
 spec:
-  name: quote-rule1
-  host: quote-rule1
-  port: 80
   controlPlaneRef:
-    type: konnectNamespacedRef
     konnectNamespacedRef:
       name: cp-zonkey
+    type: konnectNamespacedRef
+  host: httproute.default.httproute-quote.0.0
+  name: httproute.default.httproute-quote.0.0
 

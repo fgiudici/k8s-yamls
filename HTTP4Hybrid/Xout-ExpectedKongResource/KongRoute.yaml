@@ -1,16 +1,18 @@
 kind: KongRoute
 apiVersion: configuration.konghq.com/v1alpha1
 metadata:
-  name: route-quote-rule1
+  name: httproute.default.httproute-quote.0.0.0
+  ownerReferences:
+    - apiVersion: gateway.networking.k8s.io/v1
+      blockOwnerDeletion: true
+      kind: HTTPRoute
+      name: httproute-quote
 spec:
-  name: quote-rule1
-#  protocols:
-#  - http
-#  - https
+  name: httproute.default.httproute-quote.0.0.0
   paths:
-  - "/quote"
-  strip_path: false
+    - /quote
   serviceRef:
-    type: namespacedRef
     namespacedRef:
-      name: svc-quote-rule1
+      name: httproute.default.httproute-quote.0.0
+    type: namespacedRef
+  strip_path: true
