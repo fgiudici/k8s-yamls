@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: quotaday
-          image: quay.io/fgiudici/quotaday:v0.2.0
+          image: quay.io/fgiudici/quotaday:v0.3.0
           ports:
             - containerPort: 80
 ---
@@ -48,7 +48,7 @@ spec:
     spec:
       containers:
         - name: quotaday
-          image: quay.io/fgiudici/quotaday:v0.2.0
+          image: quay.io/fgiudici/quotaday:v0.3.0
           ports:
             - containerPort: 80
 ---
