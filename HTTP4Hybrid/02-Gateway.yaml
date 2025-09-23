@@ -22,7 +22,7 @@ spec:
     namespace: default
 ---
 kind: GatewayConfiguration
-apiVersion: gateway-operator.konghq.com/v1beta1
+apiVersion: gateway-operator.konghq.com/v2beta1
 metadata:
   name: konnect-zonkey
   namespace: default
