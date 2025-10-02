@@ -1,0 +1,39 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  annotations:
+    gateway-operator.konghq.com/hybrid-gateways: default/kong-zonkey01
+    gateway-operator.konghq.com/hybrid-route: HTTPRoute|default/httproute-echo
+  labels:
+    gateway-operator.konghq.com/managed-by: HTTPRoute
+    gateway-operator.konghq.com/managed-by-name: httproute-echo
+    gateway-operator.konghq.com/managed-by-namespace: default
+  name: httproute.default.httproute-echo.0.0.0
+plugin: request-transformer
+config:
+  add:
+    headers:
+    - X-Match-Rule:echo
+  remove:
+    headers:
+    - X-Match-Rule
+---
+apiVersion: configuration.konghq.com/v1alpha1
+kind: KongPluginBinding
+metadata:
+  name: httproute.default.httproute-echo.0.0.0.0
+spec:
+  controlPlaneRef:
+    konnectNamespacedRef:
+      name: cp-zonkey
+    type: konnectNamespacedRef
+  pluginRef:
+    kind: KongPlugin
+    name: httproute.default.httproute-echo.0.0.0
+  scope: OnlyTargets
+  targets:
+    routeRef:
+      group: configuration.konghq.com
+      kind: KongRoute
+      name: httproute.default.httproute-echo.0.0.0
+
