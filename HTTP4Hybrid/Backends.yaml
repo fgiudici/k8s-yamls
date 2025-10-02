@@ -1,67 +1,67 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: quotaday
+  name: echo
 spec:
   selector:
     matchLabels:
-      app: quotaday
+      app: echo
   replicas: 2
   template:
     metadata:
       labels:
-        app: quotaday
+        app: echo
     spec:
       containers:
-        - name: quotaday
-          image: quay.io/fgiudici/quotaday:v0.3.0
+        - name: echo
+          image: quay.io/fgiudici/echo:v0.3.0
           ports:
             - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: quotaday
+  name: echo
   labels:
-    app: quotaday
+    app: echo
 spec:
   ports:
   - port: 8080
     protocol: TCP
     targetPort: 80
   selector:
-    app: quotaday
+    app: echo
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: quotaday2
+  name: echo2
 spec:
   selector:
     matchLabels:
-      app: quotaday2
+      app: echo2
   replicas: 1
   template:
     metadata:
       labels:
-        app: quotaday2
+        app: echo2
     spec:
       containers:
-        - name: quotaday
-          image: quay.io/fgiudici/quotaday:v0.3.0
+        - name: echo
+          image: quay.io/fgiudici/echo:v0.3.0
           ports:
             - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: quotaday2
+  name: echo2
   labels:
-    app: quotaday2
+    app: echo2
 spec:
   ports:
   - port: 8088
     protocol: TCP
     targetPort: 80
   selector:
-    app: quotaday2
+    app: echo2
