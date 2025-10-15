@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
         - name: echo
-          image: quay.io/fgiudici/echo:v0.3.0
+          image: quay.io/fgiudici/echo:v0.4.1
+          args: ["-H", "X-Deployment:echo", "-H", "X-Reply:from-backend"]
           ports:
             - containerPort: 80
 ---
@@ -48,7 +49,8 @@ spec:
     spec:
       containers:
         - name: echo
-          image: quay.io/fgiudici/echo:v0.3.0
+          image: quay.io/fgiudici/echo:v0.4.1
+          args: ["-H", "X-Deployment:echo2", "-H", "X-Reply:from-backend"]
           ports:
             - containerPort: 80
 ---
