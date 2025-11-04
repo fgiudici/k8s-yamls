@@ -53,7 +53,7 @@ spec:
         - name: echo
           kind: Service
           port: 8080
-          weight: 2
+          weight: 1
         - name: echo2
           kind: Service
           port: 8088

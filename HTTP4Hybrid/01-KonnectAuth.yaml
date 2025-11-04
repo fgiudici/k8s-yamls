@@ -1,0 +1,21 @@
+kind: KonnectAPIAuthConfiguration
+apiVersion: konnect.konghq.com/v1alpha1
+metadata:
+  name: konnect-api-auth
+spec:
+  type: token
+  token: "kpat_XXX"
+  serverURL: eu.api.konghq.tech
+
+### The ControlPlane is automatically created now
+# ---
+# kind: KonnectGatewayControlPlane
+# apiVersion: konnect.konghq.com/v1alpha2
+# metadata:
+#   name: cp-zonkey
+# spec:
+#   createControlPlaneRequest:
+#     name: zonkey-test
+#   konnect:
+#     authRef:
+#       name: api-konnect
