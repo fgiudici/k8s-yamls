@@ -1,7 +1,7 @@
 kind: GatewayConfiguration
 apiVersion: gateway-operator.konghq.com/v2beta1
 metadata:
-  name: konnect-zonkey
+  name: konnect-hybrid
   namespace: default
 spec:
   konnect:
@@ -24,13 +24,13 @@ spec:
   parametersRef:
     group: gateway-operator.konghq.com
     kind: GatewayConfiguration
-    name: konnect-zonkey
+    name: konnect-hybrid
     namespace: default
 ---
 kind: Gateway
 apiVersion: gateway.networking.k8s.io/v1
 metadata:
-  name: kong-zonkey01
+  name: zonkey-gw
 spec:
   gatewayClassName: kong-hybrid
   listeners:

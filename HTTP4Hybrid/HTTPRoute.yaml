@@ -8,7 +8,7 @@ spec:
 #    - test.zonkey.test
 #    - *.sslip.io
   parentRefs:
-    - name: kong-zonkey01
+    - name: zonkey-gw
   rules:
     - matches:
         - path:
